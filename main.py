@@ -9,7 +9,16 @@ from sklearn.metrics import mean_absolute_error
 data = pd.read_csv("train.csv")
 
 # Select features
-features = ['GrLivArea', 'BedroomAbvGr', 'FullBath']
+features = [
+    'GrLivArea',
+    'BedroomAbvGr',
+    'FullBath',
+    'GarageArea',
+    'YearBuilt',
+    'TotRmsAbvGrd',
+    'OverallQual',
+    'LotArea'
+]
 
 X = data[features]
 y = data['SalePrice']
@@ -54,3 +63,5 @@ plt.xlabel("Living Area")
 plt.ylabel("Sale Price")
 
 plt.show()
+
+print(data[features + ['SalePrice']].corr()['SalePrice'])
